@@ -1,1 +1,7 @@
-# MyFirstProject.Darey.Io
+#  MyFirstProject.Darey.Io
+**Now** lets start
+### It actually working
+
+```
+Sudo 
+```
