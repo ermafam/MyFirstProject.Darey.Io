@@ -13,3 +13,6 @@ A technology stack is a set of frameworks and tools used to develop a software p
 * Select your preferred region (the closest to you) and launch a new EC2 instance of t2.micro family with Ubuntu Server 20.04 LTS (HVM)
 
 Once you successfully log into your AWS, you will see the main console with all the service listed as follows
+
+
+![AWS Console](https://user-images.githubusercontent.com/84423958/127680745-429c26e4-84ba-4814-8e85-70d69ff92ae3.PNG)
