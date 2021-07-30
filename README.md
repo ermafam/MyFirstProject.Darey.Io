@@ -99,6 +99,17 @@ Click on "View Instance" to check the Instance State and other details.
 
 **The next phase is to view your instance state, click on your instance to view it. At this stage, you will see if your instance is running or still pending. mine is running, now i can view my instance details**
 
+![image](https://user-images.githubusercontent.com/84423958/127694793-50d6fdc3-0480-4ae3-97bb-aaa088ab14ca.png)
+
+Next is to connect my instance to an SSH Client. In my own case, am using MOBAXTERM, you can decide to use PUTTY or any other existing ones. And to connect to MOBAXTERM, you need to copy the public ip address of the instance you want to ssh to
+Next i opened my MOBAXTERM, i clicked on SESSION, SSH, on the REMOTE HOST i pasted my public-ip address i copied from my instance. i checked the box and i specify username as (ubuntu)
+
+![image](https://user-images.githubusercontent.com/84423958/127695219-63f9bb7e-8b0a-4ad3-87c4-558aafe6f433.png)
+
+
+
+
+
 
 
 
