@@ -62,6 +62,14 @@ select ec2 stroll down, and Click on "Launch Instance."
 
 Next: Add Storage; to add or configure the Storage size and type. Every time you launch an instance from an AMI, a root storage device is created for that instance. The root storage device contains all the information necessary to boot the instance. You can specify storage volumes in addition to the root device volume when you create an AMI or launch an instance using block device.
 
+![image](https://user-images.githubusercontent.com/84423958/127690076-00716498-1e80-414a-bbf1-334d93e8a63d.png)
+
+Next: Add Tags. A tag is a label that you assign to an AWS resource. ... Tags enable you to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. For example, you could define a set of tags for your account's Amazon EC2 instances that helps you track each instance's owner and stack level.
+
+![image](https://user-images.githubusercontent.com/84423958/127690478-1a7cbf74-0aa1-4c88-967f-109e0a0cb058.png)
+
+
+
 
 
 
