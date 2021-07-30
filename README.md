@@ -64,6 +64,15 @@ Next: Add Tags. A tag is a label that you assign to an AWS resource. ... Tags en
 ![image](https://user-images.githubusercontent.com/84423958/127690478-1a7cbf74-0aa1-4c88-967f-109e0a0cb058.png)
 
 
+Click Next: Configure Security Group; A security group acts as a virtual firewall for your EC2 instances to control incoming and outgoing traffic. Inbound rules control the incoming traffic to your instance, and outbound rules control the outgoing traffic from your instance. When you launch an instance, you can specify one or more security groups.
+
+![image](https://user-images.githubusercontent.com/84423958/127691533-75e49e26-6d91-46df-a6df-0e13114cbf22.png)
+
+
+
+
+
+
 
 
 
