@@ -31,6 +31,14 @@ Once you successfully log into your AWS, you will see the main console with all 
 
 ![Avalaibility zone](https://user-images.githubusercontent.com/84423958/127685975-af52e1f7-1568-4161-8a6a-cf45cb979717.PNG)
 
+Before you launch an instance, you need to select a key pair which is then required for SSH access to the Server.
+
+To create a new key-pair, Select "Create a new key-pair" from the drop down menu, give a name to the key-pair, and download it.
+
+IMPORTANT - save your private key (.pem file) securely and do not share it with anyone! If you lose it, you will not be able to connect to your server ever again!
+
+As for me, I already created a key-pair, so I selected "Choose an existing key-pair" and i checked the acknowledgment box
+
 
 **Click on "Services" at the upper left corner and you will see the all the Services available on AWS. Click on "EC2"**
 
@@ -67,6 +75,20 @@ Next: Add Tags. A tag is a label that you assign to an AWS resource. ... Tags en
 Click Next: Configure Security Group; A security group acts as a virtual firewall for your EC2 instances to control incoming and outgoing traffic. Inbound rules control the incoming traffic to your instance, and outbound rules control the outgoing traffic from your instance. When you launch an instance, you can specify one or more security groups.
 
 ![image](https://user-images.githubusercontent.com/84423958/127691533-75e49e26-6d91-46df-a6df-0e13114cbf22.png)
+
+**Next:Review Instance Launch**
+
+![image](https://user-images.githubusercontent.com/84423958/127693935-a1b4de94-d7c2-4bb1-b413-323dca3aa859.png)
+
+Before you launch an instance, you need to select a key pair which is then required for SSH access to the Server.
+
+To create a new key-pair, Select "Create a new key-pair" from the drop down menu, give a name to the key-pair, and download it.
+
+IMPORTANT - save your private key (.pem file) securely and do not share it with anyone! If you lose it, you will not be able to connect to your server ever again!
+
+As for me, I already created a key-pair, so I selected "Choose an existing key-pair" and i checked the acknowledgment box
+
+
 
 
 
