@@ -32,11 +32,6 @@ Once you successfully log into your AWS, you will see the main console with all 
 ![Avalaibility zone](https://user-images.githubusercontent.com/84423958/127685975-af52e1f7-1568-4161-8a6a-cf45cb979717.PNG)
 
 
-**Next: Add Storage; to add or configure the Storage size and type. Every time you launch an instance from an AMI, a root storage device is created for that instance. The root storage device contains all the information necessary to boot the instance. You can specify storage volumes in addition to the root device volume when you create an AMI or launch an instance using block device.**
-
-
-
-
 **Click on "Services" at the upper left corner and you will see the all the Services available on AWS. Click on "EC2"**
 
 ![EC2 Selection](https://user-images.githubusercontent.com/84423958/127687520-8cdb059b-fe3d-4f19-99ab-06a149daf8a4.PNG)
