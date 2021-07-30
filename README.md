@@ -89,8 +89,15 @@ IMPORTANT - save your private key (.pem file) securely and do not share it with 
 As for me, I already created a key-pair, so I selected "Choose an existing key-pair" and i checked the acknowledgment box
 
 
+![image](https://user-images.githubusercontent.com/84423958/127694403-6bea779f-d03a-415a-a9ec-1ba45f830e78.png)
 
 
+Click on "View Instance" to check the Instance State and other details.
+
+![image](https://user-images.githubusercontent.com/84423958/127694579-b7aa0fe2-f689-470f-a231-9e66b4276475.png)
+
+
+**The next phase is to view your instance state, click on your instance to view it. At this stage, you will see if your instance is running or still pending. mine is running, now i can view my instance details**
 
 
 
