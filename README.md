@@ -107,6 +107,12 @@ Next i opened my MOBAXTERM, i clicked on SESSION, SSH, on the REMOTE HOST i past
 ![image](https://user-images.githubusercontent.com/84423958/127695219-63f9bb7e-8b0a-4ad3-87c4-558aafe6f433.png)
 
 
+Next i clicked on ADVANCE SSH settings, i checked the box for private key, and i browse my downloaded key.pem next i clicked on OK
+
+![image](https://user-images.githubusercontent.com/84423958/127695676-27876298-0db5-4d55-9451-87aa0e53162c.png)
+
+
+
 
 
 
