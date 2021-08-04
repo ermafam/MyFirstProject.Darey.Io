@@ -126,9 +126,127 @@ For a web application to work smoothly, it has to include an operating system, a
 * MySQL database management system
 * PHP programming language
 
-**In this project, I will implement a web solution based on LAMP stack on a Linux server by implementing the steps below:**
+## LAMP STACK IMPLEMENTATION IN AWS
+The Four Layers of a LAMP Stack
 
-*Step 1 — Installing Apache and Updating the Firewall*
+Linux based web servers consist of four software components. These components, arranged in layers supporting one another, make up the software stack. Websites and Web Applications run on top of this underlying stack. The common software components that make up a traditional LAMP stack are:
+
+**Linux**: The operating system (OS) makes up our first layer. Linux sets the foundation for the stack model. All other layers run on top of this layer.
+
+**Apache**: The second layer consists of web server software, typically Apache Web Server. This layer resides on top of the Linux layer. Web servers are responsible for translating from web browsers to their correct website.
+
+**MySQL**: Our third layer is where databases live. MySQL stores details that can be queried by scripting to construct a website. MySQL usually sits on top of the Linux layer alongside Apache/layer 2. In high end configurations, MySQL can be off loaded to a separate host server.
+
+**PHP**: Sitting on top of them all is our fourth and final layer. The scripting layer consists of PHP and/or other similar web programming languages. Websites and Web Applications run within this layer.
+
+* We can visualize the LAMP stack like so:
+
+![image](https://user-images.githubusercontent.com/84423958/128258569-dc9804c8-7984-4484-b300-e2e30f1be914.png)
+
+
+## In this project, I will implement a web solution based on LAMP stack on a Linux server by implementing the steps below:
+
+# STEP 1 — INSTALLING APACHE AND UPDATING THE FIREWALL
+
+* We need to Install Apache using Ubuntu’s package manager, apt:
+
+```
+$ sudo apt update 
+$ sudo apt install apache2
+```
+
+# To verify that apache2 is running as a Service in our OS, use following command
+
+# See my output:
+
+![My Apache Server](https://user-images.githubusercontent.com/84423958/128259682-7a4e5b73-7dba-4ce8-8d49-1128c3031b04.PNG)
+
+* We need to configure our firewall settings to allow HTTP traffic. UFW has different application profiles that we can leverage for accomplishing that. To list all currently available UFW application profile, **run:**
+
+**See my output:**
+
+![image](https://user-images.githubusercontent.com/84423958/128260279-49c680d4-f2c3-4d8b-a6f8-d1b0f6d5f39d.png)
+
+
+Before we can receive any traffic by our Web Server, we need to open TCP port 80 which is the default port that web browsers use to access web pages on the Internet
+
+To open our port 80, i went back to the instance, clicked on security, clicked on edit inbound rules and i add rules. i added port 80 for http and port 443 https and i cliked on save rules
+
+**see my output:**
+
+
+![image](https://user-images.githubusercontent.com/84423958/128260418-7845bed1-947c-4b67-8752-6ce4ef6f7d66.png)
+
+
+## Our server is running and we can access it locally and from the Internet (Source 0.0.0.0/0 means ‘from any IP address’).
+
+* To verify and check that we can access it locally in our ubuntu shell and from the internet,**run**
+```
+$ curl http://localhost:80
+or
+$ curl http://127.0.0.1:80
+```
+
+## As an output you can see some strangely formatted test, do not worry, we just made sure that our Apache web service responds to ‘curl’ command with some payload.
+
+Open a web browser of your choice and try to access following **url
+```
+http://<Public-ip-address>:80
+```
+
+## Another way to retrieve your Public IP address, other than to check it in AWS Web Console, is to use the following command.
+```
+
+$ curl -s http://169.254.169.254/latest/meta-data/public-ipv4
+```
+
+* If you see the following page, then your web server is now correctly installed and accessible through your firewall.
+
+## See my output:
+
+
+![image](https://user-images.githubusercontent.com/84423958/128262262-754eb2fa-f653-4bac-b011-986adadf7099.png)
+
+# STEP 2 - Installing MySQL
+
+## We need to install the database system to be able to store and manage data for our website. MySQL is a popular database management system used within PHP environments.
+
+
+* To install mysql-server, **run:**
+```
+
+sudo apt -y install mysql-server
+```
+
+* After the installation it is recommended that we run a security script that comes pre-installed with MySQL. This script will remove some insecure default settings and lockdown access to our database system.
+
+* Start the interactive Script by running:
+```
+
+sudo mysql_secure_installation
+```
+
+* This will ask if you want to configure the VALIDATE PASSWORD PLUGIN.
+
+## Note: Enabling this feature is something of a judgment call. If enabled, passwords which don’t match the specified criteria will be rejected by MySQL with an error. It is safe to leave validation disabled, but you should always use strong, unique passwords for database credentials.
+
+Answer Y for yes, or anything else to continue without enabling.
+```
+
+VALIDATE PASSWORD PLUGIN can be used to test passwords
+and improve security. It checks the strength of password
+and allows the users to set only those passwords which are
+secure enough. Would you like to setup VALIDATE PASSWORD plugin?
+
+Press y|Y for Yes, any other key for No:
+```
+
+
+
+
+
+
+
 
 
 
