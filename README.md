@@ -119,6 +119,14 @@ Next i clicked on ADVANCE SSH settings, i checked the box for private key, and i
 ![image](https://user-images.githubusercontent.com/84423958/127695676-27876298-0db5-4d55-9451-87aa0e53162c.png)
 
 
+For a web application to work smoothly, it has to include an operating system, a web server, a database, and a programming language. The name LAMP is an acronym of the following programs:
+
+* Linux Operating System
+* Apache HTTP Server
+* MySQL database management system
+* PHP programming language
+
+
 
 
 
