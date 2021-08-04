@@ -161,12 +161,6 @@ $ sudo apt install apache2
 
 ![My Apache Server](https://user-images.githubusercontent.com/84423958/128259682-7a4e5b73-7dba-4ce8-8d49-1128c3031b04.PNG)
 
-* We need to configure our firewall settings to allow HTTP traffic. UFW has different application profiles that we can leverage for accomplishing that. To list all currently available UFW application profile, **run:**
-
-**See my output:**
-
-![image](https://user-images.githubusercontent.com/84423958/128260279-49c680d4-f2c3-4d8b-a6f8-d1b0f6d5f39d.png)
-
 
 Before we can receive any traffic by our Web Server, we need to open TCP port 80 which is the default port that web browsers use to access web pages on the Internet
 
@@ -275,6 +269,182 @@ mysql> exit
 * Next, we will install PHP, the final component in the LAMP Stack.
 
 
+## Step 3 — Installing PHP
+
+# We have Apache installed to serve our content and MySQL installed to store and manage our data. PHP is the component of our setup that will process code to display dynamic content to the final user. In addition to the php package, we’ll need php-mysql, a PHP module that allows PHP to communicate with MySQL-based databases. We’ll also need libapache2-mod-php to enable Apache to handle PHP files. Core PHP packages will automatically be installed as dependencies.
+
+To install these 3 packages at once, **run:
+```
+
+$ sudo apt -y install php libapache2-mod-php php-mysql
+```
+
+* Once the installation is finished, you can run the following command to confirm your PHP version:
+```
+
+php -v
+```
+
+![image](https://user-images.githubusercontent.com/84423958/128264962-de5b4193-1b07-4ff2-818c-a600bf9033c8.png)
+
+
+* At this point, your LAMP stack is completely installed and fully operational.
+* To test our setup with a PHP Script, it's best to setup a proper Apache Virtual Host to host our website's file and folders. Virtual Host allows you to have multiple websites located on a single machine and users of the websites will not even notice it.
+
+![image](https://user-images.githubusercontent.com/84423958/128265068-655cceeb-197c-4ac9-b73c-63d237fe66de.png)
+
+* We will configure our first Virtual Host in the next step.
+
+## Step 4 — Creating a Virtual Host for your Website using Apache
+
+In this project, you will set up a domain called projectlamp, but you can replace this with any domain of your choice.
+
+Apache on Ubuntu 20.04 has one server block enabled by default that is configured to serve documents from the /var/www/html directory. We will leave this configuration as is and will add our own directory next next to the default one.
+
+Create the directory for projectlamp using ‘mkdir’ command as follows:
+```
+
+sudo mkdir /var/www/projectlamp
+```
+
+This will create a new blank file. Paste in the following bare-bones configuration by hitting on i on the keyboard to enter the insert mode, and paste the text:
+
+![image](https://user-images.githubusercontent.com/84423958/128265413-71a2d527-5020-4dc9-ae4e-f7d893ef678b.png)
+
+
+To save and close the file, simply follow the steps below:
+
+* Hit the esc button on the keyboard
+* Type :
+* Type wq. w for write and q for quit
+* Hit ENTER to save the file
+# You can use the ls command to show the new file in the sites-available directory
+```
+
+$ sudo ls /etc/apache2/sites-available
+```
+**see my output:
+
+![image](https://user-images.githubusercontent.com/84423958/128265843-74afd325-3483-4184-8ef2-a0dde9f39e65.png)
+
+
+# With this VirtualHost configuration, we’re telling Apache to serve propitixhomes.local using /var/www/projectlamp as the web root directory. If we like to test Apache without a domain name, we can remove or comment out the options ServerName and ServerAlias by adding a # character in the beginning of each option’s lines. Adding the # character there will tell the program to skip processing the instructions on those lines.
+
+You can now use a2ensite command to enable the new virtual host:
+
+```
+$ sudo a2ensite projectlamp
+```
+
+![image](https://user-images.githubusercontent.com/84423958/128265990-eb915fef-d9dc-4d90-955e-cdd5e40027c2.png)
+
+* We might want to disable the default website that comes installed with Apache. This is required if we are not using a custom domain name, because in this case Apache’s default configuration would overwrite our virtual host. To disable Apache’sdefault website use a2dissite command, type:
+
+```
+$ sudo a2dissite 000-default
+```
+
+![image](https://user-images.githubusercontent.com/84423958/128266165-54fe30a4-a986-4ccf-8ccf-6231169f5f5d.png)
+
+
+* To make sure your configuration file doesn't contain syntax errors, run :
+```
+$ sudo apache2ctl configtest
+```
+
+![image](https://user-images.githubusercontent.com/84423958/128266302-e2d69c96-f044-4bad-956e-4d8d15fd1756.png)
+
+* Finally, reload Apache so these changes take effect:
+```
+
+sudo systemctl reload apache2
+```
+
+Your new website is now active, but the web root /var/www/projectlamp is still empty. Create an index.html file in that location so that we can test that the virtual host works as expected:
+
+* Type and run :
+```
+$ sudo vi /var/www/projectlamp/index.html
+```
+
+see my input :
+
+![image](https://user-images.githubusercontent.com/84423958/128266622-3acbca57-00e6-4f11-b9c1-00d5abb1152c.png)
+
+Now go to your browser and try to open your website URL using IP address:
+```
+
+http://<public-ip-address>:80
+```
+
+or you can also browse using your public dns. the result is the same
+```
+http://<Public-DNS-Name>:80
+```
+**See my output :
+
+![My DNS](https://user-images.githubusercontent.com/84423958/128267571-69232d24-49a3-4047-a5d8-5eaee30006ee.PNG)
+
+
+You can leave this file in place as a temporary landing page for your application until you set up an index.php file to replace it. Once you do that, remember to remove or rename the index.html file from your document root, as it would take precedence over an index.php file by default.
+
+* To check your Public IP from the Ubuntu shell, run :
+```
+
+$(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 
+$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
+```
+
+## Step 5 — Enable PHP on the website
+
+With the default DirectoryIndex settings on Apache, a file named index.html will always take precedence over an index.php file. This is useful for setting up maintenance pages in PHP applications, by creating a temporary index.html file containing an informative message to visitors. Because this page will take precedence over the index.php page, it will then become the landing page for the application. Once maintenance is over, the index.html is renamed or removed from the document root, bringing back the regular application page.
+
+In case you want to change this behavior, you’ll need to edit the /etc/apache2/mods-enabled/dir.conf file and change the order in which the index.php file is listed within the DirectoryIndex directive:
+```
+
+sudo vim /etc/apache2/mods-enabled/dir.conf
+```
+
+#Change this: #DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm #To this: DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
+After saving and closing the file, you will need to reload Apache so the changes take effect:
+```
+
+$ sudo systemctl reload apache2
+```
+
+* Finally, we will create a PHP Script to test the PHP is correctly installed and configured on our Server.
+* Now that we have a custom location to host our website's files and folders, we'll create a PHP test script to confirm that Apache is able to handle and process requests for PHP files.
+* Create a new file named index.php inside our custom web root folder:
+```
+
+$ vim /var/www/projectlamp/index.php
+```
+
+This will open a blank file. Add the following text, which is valid PHP code, inside the file:
+
+```
+<?php
+phpinfo();
+```
+
+**See my output:
+
+![image](https://user-images.githubusercontent.com/84423958/128268230-281810ad-8e55-4746-a561-7aae989fa81a.png)
+
+
+# When you are finished, save and close the file, refresh the page and you will see a page similar to this :
+
+![image](https://user-images.githubusercontent.com/84423958/128268293-1e08ccca-8653-4b85-ad43-7b7d6f5b399d.png)
+
+* This page provides information about your server from the perspective of PHP. It is useful for debugging and to ensure that your settings are being applied correctly.
+
+* If you can see this page in your browser, then your PHP installation is working as expected.
+
+* After checking the relevant information about your PHP server through that page, it’s best to remove the file you created as it contains sensitive information about your PHP environment -and your Ubuntu server. You can use rm to do so:
+```
+
+$ sudo rm /var/www/projectlamp/index.php
+```
 
 
 
