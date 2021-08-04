@@ -33,6 +33,13 @@ Once you successfully log into your AWS, you will see the main console with all 
 
 Before you launch an instance, you need to select a key pair which is then required for SSH access to the Server.
 
+For a web application to work smoothly, it has to include an operating system, a web server, a database, and a programming language. The name LAMP is an acronym of the following programs:
+
+* Linux Operating System
+* Apache HTTP Server
+* MySQL database management system
+* PHP programming language
+
 To create a new key-pair, Select "Create a new key-pair" from the drop down menu, give a name to the key-pair, and download it.
 
 IMPORTANT - save your private key (.pem file) securely and do not share it with anyone! If you lose it, you will not be able to connect to your server ever again!
