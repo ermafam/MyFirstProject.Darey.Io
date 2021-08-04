@@ -126,6 +126,8 @@ For a web application to work smoothly, it has to include an operating system, a
 * MySQL database management system
 * PHP programming language
 
+In this project, I will implement a web solution based on LAMP stack on a Linux server by implementing the steps below:
+
 
 
 
