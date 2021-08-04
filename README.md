@@ -241,6 +241,44 @@ secure enough. Would you like to setup VALIDATE PASSWORD plugin?
 Press y|Y for Yes, any other key for No:
 ```
 
+* If you answer “yes”, you’ll be asked to select a level of password validation. Keep in mind that if you enter 2 for the strongest level, you will receive errors when attempting to set any password which does not contain numbers, upper and lowercase letters, and special characters, or which is based on common dictionary words.
+
+## If we enabled password validation, we’ll be shown the password strength for the root password we just entered and our server will ask if we want to continue with that password.
+## If we are happy with our current password, enter Y for “yes” at the prompt:
+
+## For the rest of the questions, We press Y and hit the ENTER key at each prompt. This will remove some anonymous users and the test database, disable remote root logins, and load these new rules so that MySQL immediately respects the changes we have made.
+
+when you are done, you will get this output:
+
+![image](https://user-images.githubusercontent.com/84423958/128263637-40a989bb-0d35-41cd-a52e-163c7715f814.png)
+
+* When you're finished, test if you're able to login to the MySQL Console by typing:
+````
+
+sudo mysql
+````
+
+![image](https://user-images.githubusercontent.com/84423958/128263917-44348631-a618-4780-93aa-5d5fe8872a26.png)
+
+* To exit the MySQL Console, type: **exit
+```
+
+mysql> exit
+```
+
+## Setting a password for the root MySQL account works as a safeguard, in case the default authentication method is changed from unix_socket to password. For increased security, it’s best to have dedicated user accounts with less expansive privileges set up for every database, especially if we plan on having multiple databases hosted on our server.
+
+## Note: At the time of this writing, the native MySQL PHP library mysqlnd doesn’t support caching_sha2_authentication, the default authentication method for MySQL 8. For that reason, when creating database users for PHP applications on MySQL 8, we’ll need to make sure they’re configured to use mysql_native_password instead. We’ll demonstrate how to do that later.
+
+## Our MySQL server is now installed and secured.
+
+* Next, we will install PHP, the final component in the LAMP Stack.
+
+
+
+
+
+
 
 
 
