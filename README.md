@@ -128,6 +128,8 @@ For a web application to work smoothly, it has to include an operating system, a
 
 **In this project, I will implement a web solution based on LAMP stack on a Linux server by implementing the steps below:**
 
+*Step 1 — Installing Apache and Updating the Firewall*
+
 
 
 
